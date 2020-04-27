@@ -1,0 +1,42 @@
+import tkinter as tk 
+
+def convert():
+  NTD=float(NTD_entry.get())
+  USD=round(NTD/30.26, 2) 
+  USD_result.configure(text=USD)
+
+window=tk.Tk()
+window.title('NTD/USD Conversion Table')
+window.geometry('800x300')
+window.configure(background='aquamarine')
+
+text_label=tk.Label(window, text='NTD/USD Conversion Table')
+text_label.configure(background='bisque')
+text_label.pack()
+
+NTD_frame=tk.Frame(window)
+NTD_frame.pack(side=tk.TOP)
+NTD_label=tk.Label(NTD_frame, text='NTD: $')
+NTD_label.configure(background='white')
+NTD_label.pack(side=tk.LEFT)
+NTD_entry=tk.Entry(NTD_frame)
+NTD_entry.pack(side=tk.LEFT)
+
+USD_frame=tk.Frame(window)
+USD_frame.pack(side=tk.TOP)
+USD_label=tk.Label(USD_frame, text='USD: $')
+USD_label.configure(background='white')
+USD_label.pack(side=tk.LEFT)
+USD_result=tk.Label(USD_frame)
+USD_result.configure(backgroun='lavender',width= 20, height=1,)
+USD_result.pack(side=tk.LEFT)
+
+info_label=tk.Label(window, text='Converstion rate= 30.26 (NTD/USD)')
+info_label.configure(background='white')
+info_label.pack()
+
+button=tk.Button(window,text='Convert',command=convert)
+button.configure(background='light salmon')
+button.pack()
+
+window.mainloop()
